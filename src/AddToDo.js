@@ -1,10 +1,7 @@
-// old version
-
 import React, { useState } from 'react';
-import {Form, Button, Table, Container, Col} from "react-bootstrap";
+import {Form, Button, Container, Col} from "react-bootstrap";
 
-const Todolist = () => {
-  const [toDos, setToDos] = useState([]);
+const AddToDo = (props) => {
   const [toDo, setToDo] = useState({
     description: '',
     date: '',
@@ -16,15 +13,18 @@ const Todolist = () => {
 
   const addTodo = (event) => {
     event.preventDefault();
-    setToDos([...toDos, toDo]);
     setToDo({
       description: '',
       date: '',
     })
   }
 
+  const handleAdding = () => {
+    props.onAddingItem(toDo);
+  }
+
   return (
-    <div className="mt-5">
+    <div>
       <Container className="mt-5">
         <Container className="block-example border border-primary p-3 rounded mb-0">
           <Form onSubmit={addTodo} inline >
@@ -60,7 +60,7 @@ const Todolist = () => {
               </Col>
 
               <Col xs="auto">
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" onClick={handleAdding}>
                   Add
                 </Button>
               </Col>
@@ -68,27 +68,9 @@ const Todolist = () => {
             </Form.Row>
           </Form>
         </Container>
-
-        <Container className="mt-5">
-          <Table striped bordered hover>
-            <thead>
-            <tr>
-              <th>Description</th>
-              <th>Date</th>
-            </tr>
-            </thead>
-            <tbody>
-            {toDos.map((toDo, index) =>
-              <tr key={index}>
-                <td>{toDo.description}</td>
-                <td>{toDo.date}</td>
-              </tr>)}
-            </tbody>
-          </Table>
-        </Container>
       </Container>
     </div>
   );
-};
+}
 
-export default Todolist;
+export default AddToDo;

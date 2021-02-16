@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Form, Button, Container, Col} from "react-bootstrap";
+import { Form, Button, Container, Col } from 'react-bootstrap';
 
 const AddToDo = (props) => {
   const [toDo, setToDo] = useState({
@@ -25,42 +25,42 @@ const AddToDo = (props) => {
 
   return (
     <div>
-      <Container className="mt-5">
-        <Container className="block-example border border-primary p-3 rounded mb-0">
+      <Container className='mt-5'>
+        <Container className='block-example border border-primary p-3 rounded mb-0'>
           <Form onSubmit={addTodo} inline >
-            <Form.Row className="align-items-center">
-              <Col xs="auto">
+            <Form.Row className='align-items-center'>
+              <Col xs='auto'>
                 <Form.Group>
                   <Form.Label>Description: </Form.Label>
                   <Form.Control
-                    type="text"
-                    placeholder="Enter description"
+                    type='text'
+                    placeholder='Enter description'
                     name='description'
                     value={toDo.description}
                     onChange={inputChanged}
-                    className="ml-2"
+                    className='ml-2'
                     required
                   />
                 </Form.Group>
               </Col>
 
-              <Col xs="auto">
+              <Col xs='auto'>
                 <Form.Group>
                   <Form.Label>Date: </Form.Label>
                   <Form.Control
-                    type="date"
-                    placeholder="Enter date"
+                    type='date'
+                    placeholder='Enter date'
                     name='date'
                     value={toDo.date}
                     onChange={inputChanged}
-                    className="ml-2"
+                    className='ml-2'
                     required
                   />
                 </Form.Group>
               </Col>
 
-              <Col xs="auto">
-                <Button variant="primary" type="submit" onClick={handleAdding}>
+              <Col xs='auto'>
+                <Button variant='primary' type='submit' onClick={handleAdding}>
                   Add
                 </Button>
               </Col>

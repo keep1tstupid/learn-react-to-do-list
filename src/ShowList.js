@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Table, Container, } from 'react-bootstrap';
+import Item from "./Item";
 
 const ShowList = (props) => (
   <div>
@@ -9,22 +10,17 @@ const ShowList = (props) => (
         <tr>
           <th>Description</th>
           <th>Date</th>
-          <th> </th>
+          <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        {props.toDos.map((toDo, index) =>
-          <tr key={index}>
-            <td>{toDo.description}</td>
-            <td>{toDo.date}</td>
-            <td>
-              <Button
-                variant='danger'
-                onClick={() => props.onDeletingItem(index)}>
-                Delete
-              </Button>
-            </td>
-          </tr>)}
+          {props.toDos.map((toDo, index) => <Item
+            key={index}
+            index={index}
+            onDeletingItem={props.onDeletingItem}
+            onEditingItem={props.onEditingItem}
+            {...toDo}
+          />)}
         </tbody>
       </Table>
     </Container>

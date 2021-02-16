@@ -11,6 +11,10 @@ function App() {
     setToDos(toDos.filter((_, idx) => index !== idx))
   }
 
+  const onEdit = (index, toDo) => {
+    setToDos(toDos.map((item, idx) => index === idx ? toDo : item))
+  }
+
   return (
     <div className='App'>
       <AddToDo
@@ -19,6 +23,7 @@ function App() {
       <ShowList
         toDos={toDos}
         onDeletingItem={onDelete}
+        onEditingItem={onEdit}
       />
     </div>
   )

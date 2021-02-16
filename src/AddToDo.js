@@ -5,23 +5,23 @@ const AddToDo = (props) => {
   const [toDo, setToDo] = useState({
     description: '',
     date: '',
-  })
+  });
 
   const inputChanged = (event) => {
     setToDo({...toDo, [event.target.name]: event.target.value});
-  }
+  };
 
   const addTodo = (event) => {
     event.preventDefault();
     setToDo({
       description: '',
       date: '',
-    })
-  }
+    });
+  };
 
   const handleAdding = () => {
     props.onAddingItem(toDo);
-  }
+  };
 
   return (
     <div>

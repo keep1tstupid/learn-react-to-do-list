@@ -2,7 +2,9 @@
 
 16.2.2021 state: 
 
-![ScreenShot](src/screenshots/list2021-02-16.png) 
+To-do list 
+![ScreenShot](src/screenshots/updList2021-02-16.png) 
 
-![ScreenShot](src/screenshots/edit2021-02-16.png) 
+Editing to-do
+![ScreenShot](src/screenshots/updEdit2021-02-16.png) 
 

@@ -36,28 +36,24 @@ const Item = (props) =>{
   return edit ? (
     <tr key={props.index}>
       <td>
-        <Form.Group>
-          <Form.Control
-            type='text'
-            placeholder='Enter description'
-            name='description'
-            value={toDo.description}
-            onChange={inputChanged}
-            required
-          />
-        </Form.Group>
+        <Form.Control
+          type='text'
+          placeholder='Enter description'
+          name='description'
+          value={toDo.description}
+          onChange={inputChanged}
+          required
+        />
       </td>
       <td>
-        <Form.Group>
-          <Form.Control
-            type='date'
-            placeholder='Enter date'
-            name='date'
-            value={toDo.date}
-            onChange={inputChanged}
-            required
-          />
-        </Form.Group>
+        <Form.Control
+          type='date'
+          placeholder='Enter date'
+          name='date'
+          value={toDo.date}
+          onChange={inputChanged}
+          required
+        />
       </td>
         <td>
           <Button

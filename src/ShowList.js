@@ -8,9 +8,9 @@ const ShowList = (props) => (
       <Table striped bordered hover>
         <thead>
         <tr>
-          <th>Description</th>
-          <th>Date</th>
-          <th>Actions</th>
+          <th width='40%'>Description</th>
+          <th width='40%'>Date</th>
+          <th width='20%'>Actions</th>
         </tr>
         </thead>
         <tbody>

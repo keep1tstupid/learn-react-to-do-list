@@ -1,5 +1,6 @@
 import React, { useState }  from 'react';
 import {Button, Form,} from 'react-bootstrap';
+import moment from 'moment';
 
 const Item = (props) =>{
   const INITIAL_STATE = {
@@ -75,7 +76,7 @@ const Item = (props) =>{
     ) : (
     <tr key={props.index}>
       <td>{props.description}</td>
-      <td>{props.date}</td>
+      <td> {moment(props.date).format('DD.MM.YYYY')} </td>
       <td>
         <Button
           variant='secondary'

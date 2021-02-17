@@ -25,7 +25,7 @@ const AddToDo = (props) => {
 
   return (
     <div>
-      <Container className='mt-5'>
+      <Container className={'mt-3 pl-0 pr-0'}>
         <Container className='block-example border border-primary p-3 rounded mb-0'>
           <Form onSubmit={addTodo} inline >
             <Form.Row className='align-items-center'>

@@ -4,8 +4,8 @@ import Item from "./Item";
 
 const ShowList = (props) => (
   <div>
-    <Container className='mt-5'>
-      <Table striped bordered hover>
+    <Container className={'mt-3 pl-0 pr-0'}>
+      <Table striped bordered hover >
         <thead>
         <tr>
           <th width='40%'>Description</th>

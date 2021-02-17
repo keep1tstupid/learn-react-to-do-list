@@ -3,6 +3,7 @@ import './App.css';
 
 import AddToDo from './AddToDo';
 import ShowList from './ShowList';
+import Header from "./Header";
 
 function App() {
   const [toDos, setToDos] = useState([]);
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <div className='App'>
+      <Header />
       <AddToDo
         onAddingItem={(toDo) => setToDos([...toDos, toDo])}
       />

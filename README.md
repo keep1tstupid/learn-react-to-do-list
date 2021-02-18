@@ -12,3 +12,8 @@ Editing to-do
 
 Header added: 
 ![ScreenShot](src/screenshots/header2021-02-17.png) 
+
+18.2.2021 state: 
+
+Routing added (links in nav):
+![ScreenShot](src/screenshots/routing2021-02-18.png) 

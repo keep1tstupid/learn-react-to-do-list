@@ -1,34 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
-
-import AddToDo from './AddToDo';
-import ShowList from './ShowList';
-import Header from "./Header";
+import ToDoView from "./views/ToDoView";
+import HomeView from "./views/HomeView";
 
 function App() {
-  const [toDos, setToDos] = useState([]);
-
-  const onDelete = (index) => {
-    setToDos(toDos.filter((_, idx) => index !== idx))
-  };
-
-  const onEdit = (index, toDo) => {
-    setToDos(toDos.map((item, idx) => index === idx ? toDo : item))
-  };
 
   return (
-    <div className='App'>
-      <Header />
-      <AddToDo
-        onAddingItem={(toDo) => setToDos([...toDos, toDo])}
-      />
-      <ShowList
-        toDos={toDos}
-        onDeletingItem={onDelete}
-        onEditingItem={onEdit}
-      />
+    <div className="App">
+      <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={HomeView}/>
+            <Route path="/todo" component={ToDoView}/>
+            <Route path="/contact" render={() => <h1>Contact address</h1>} />
+            <Route render={() => <h1>Page not found</h1>} />
+          </Switch>
+      </BrowserRouter>
     </div>
-  )
+  );
 }
 
 export default App;

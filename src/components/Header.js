@@ -1,15 +1,18 @@
 import React from 'react'
 import { Container, Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Link, Route, Switch} from "react-router-dom";
+import HomeView from "../views/HomeView";
+import ToDoView from "../views/ToDoView";
 
 const Header = () => (
   <div>
+
     <Navbar bg="primary" variant="dark">
       <Container className={'pl-1'}>
-        <Navbar.Brand href="#home">To-Do App</Navbar.Brand>
+        <Navbar.Brand>To-Do App</Navbar.Brand>
         <Nav className="mr-auto">
-          {/*<Nav.Link href="#">Link1</Nav.Link>*/}
-          {/*<Nav.Link href="#">Link2</Nav.Link>*/}
-          {/*<Nav.Link href="#">Link3</Nav.Link>*/}
+          <Nav.Link as={Link} to="/" >Home</Nav.Link>
+          <Nav.Link as={Link} to="/todo">To-Do</Nav.Link>
         </Nav>
         {/*<Form inline>*/}
         {/*  <FormControl type="text" placeholder="Search" className="mr-sm-2" />*/}

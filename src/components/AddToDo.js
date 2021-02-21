@@ -1,21 +1,33 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Col } from 'react-bootstrap';
+import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
+import moment from 'moment';
+import MomentUtils from "@date-io/moment";
+
 
 const AddToDo = (props) => {
   const [toDo, setToDo] = useState({
     description: '',
-    date: '',
+    date: moment(),
   });
 
   const inputChanged = (event) => {
     setToDo({...toDo, [event.target.name]: event.target.value});
+    console.log(event, event.target.value);
   };
 
-  const addTodo = (event) => {
+  const dateChanged = (date) => {
+    setToDo({...toDo,
+      date: date,
+    });
+    console.log(date);
+  };
+
+  const clearOnSubmit = (event) => {
     event.preventDefault();
     setToDo({
       description: '',
-      date: '',
+      date: moment(),
     });
   };
 
@@ -27,7 +39,7 @@ const AddToDo = (props) => {
     <div>
       <Container className={'mt-3 pl-0 pr-0'}>
         <Container className='block-example border border-primary p-3 rounded mb-0'>
-          <Form onSubmit={addTodo} inline >
+          <Form onSubmit={clearOnSubmit} inline >
             <Form.Row className='align-items-center'>
               <Col xs='auto'>
                 <Form.Group>
@@ -46,16 +58,14 @@ const AddToDo = (props) => {
 
               <Col xs='auto'>
                 <Form.Group>
-                  <Form.Label>Date: </Form.Label>
-                  <Form.Control
-                    type='date'
-                    placeholder='Enter date'
-                    name='date'
-                    value={toDo.date}
-                    onChange={inputChanged}
-                    className='ml-2'
-                    required
-                  />
+                  <MuiPickersUtilsProvider libInstance={moment} utils={MomentUtils}>
+                    <DatePicker
+                      value={toDo.date}
+                      name='date'
+                      format="DD.MM.YYYY"
+                      onChange={dateChanged}
+                      />
+                  </MuiPickersUtilsProvider>
                 </Form.Group>
               </Col>
 

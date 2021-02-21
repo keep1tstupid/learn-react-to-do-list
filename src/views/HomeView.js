@@ -6,7 +6,7 @@ const HomeView = () => {
   return (
     <div>
       <Header />
-      <p> home </p>
+      <p> Welcome </p>
     </div>
   );
 }

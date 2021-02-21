@@ -8,7 +8,7 @@ import MomentUtils from "@date-io/moment";
 const AddToDo = (props) => {
   const [toDo, setToDo] = useState({
     description: '',
-    date: moment(),
+    date: null,
   });
 
   const inputChanged = (event) => {
@@ -27,7 +27,7 @@ const AddToDo = (props) => {
     event.preventDefault();
     setToDo({
       description: '',
-      date: moment(),
+      date: null,
     });
   };
 
@@ -58,12 +58,14 @@ const AddToDo = (props) => {
 
               <Col xs='auto'>
                 <Form.Group>
+                  <Form.Label>Date: </Form.Label>
                   <MuiPickersUtilsProvider libInstance={moment} utils={MomentUtils}>
                     <DatePicker
                       value={toDo.date}
                       name='date'
                       format="DD.MM.YYYY"
                       onChange={dateChanged}
+                      styles
                       />
                   </MuiPickersUtilsProvider>
                 </Form.Group>

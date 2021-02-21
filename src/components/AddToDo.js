@@ -64,7 +64,7 @@ const AddToDo = (props) => {
                       value={toDo.date}
                       name='date'
                       format="DD.MM.YYYY"
-                      onChange={date => dateChanged(date)}
+                      onChange={date => dateChanged(date.toISOString())}
                       styles
                       />
                   </MuiPickersUtilsProvider>

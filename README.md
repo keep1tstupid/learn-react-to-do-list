@@ -10,6 +10,10 @@ Material UI datepicker added for adding and editing to-do date:
 
 ![ScreenShot](src/screenshots/datepicker2_2021-02-22.png) 
 
+Jumbotron with motivational quotes is added on the Home page (random quotes from https://type.fit/api/quotes):
+
+![ScreenShot](src/screenshots/quote_2021-02-22.png) 
+
 ### 18.2.2021 state: 
 
 Routing added (links in nav):

@@ -17,3 +17,10 @@ Header added:
 
 Routing added (links in nav):
 ![ScreenShot](src/screenshots/routing2021-02-18.png) 
+
+22.2.2021 state: 
+
+Material UI datepicker added for adding and editing to-do date:
+![ScreenShot](src/screenshots/datepicker1_2021-02-22.png) 
+
+![ScreenShot](src/screenshots/datepicker2_2021-02-22.png) 

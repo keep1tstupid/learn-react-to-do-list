@@ -1,8 +1,7 @@
 import React, { useState }  from 'react';
 import {Button, Form,} from 'react-bootstrap';
 import moment from 'moment';
-import MomentUtils from "@date-io/moment";
-import {DatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
+import MyDatePicker from "./MyDatePicker";
 
 const Item = (props) =>{
   const INITIAL_STATE = {
@@ -23,10 +22,7 @@ const Item = (props) =>{
   };
 
   const dateChanged = (date) => {
-    setToDo({...toDo,
-      date: date,
-    });
-    console.log(date);
+    setToDo({...toDo, date: date });
   };
 
   const enableEditMode = () => {
@@ -55,14 +51,10 @@ const Item = (props) =>{
         />
       </td>
       <td>
-        <MuiPickersUtilsProvider libInstance={moment} utils={MomentUtils}>
-          <DatePicker
-            value={toDo.date}
-            name='date'
-            format="DD.MM.YYYY"
-            onChange={date => dateChanged(date.toISOString())}
-          />
-        </MuiPickersUtilsProvider>
+        <MyDatePicker
+          value={toDo.date}
+          onEditingDate={dateChanged}
+        />
       </td>
         <td>
           <Button
@@ -91,7 +83,7 @@ const Item = (props) =>{
         {' '}
         <Button
           variant='danger'
-          onClick={()=>props.onDeletingItem(props.index)}>
+          onClick={()=> props.onDeletingItem(props.index)}>
           Delete
         </Button>
       </td>

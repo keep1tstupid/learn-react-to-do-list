@@ -1,12 +1,9 @@
 import React from 'react'
 import { Container, Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import { Link, Route, Switch} from "react-router-dom";
-import HomeView from "../views/HomeView";
-import ToDoView from "../views/ToDoView";
 
 const Header = () => (
   <div>
-
     <Navbar bg="primary" variant="dark">
       <Container className={'pl-1'}>
         <Navbar.Brand>To-Do App</Navbar.Brand>

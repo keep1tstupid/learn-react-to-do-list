@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Col } from 'react-bootstrap';
-import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
-import moment from 'moment';
-import MomentUtils from "@date-io/moment";
+import MyDatePicker from "./MyDatePicker";
 
 
 const AddToDo = (props) => {
@@ -13,14 +11,10 @@ const AddToDo = (props) => {
 
   const inputChanged = (event) => {
     setToDo({...toDo, [event.target.name]: event.target.value});
-    console.log(event, event.target.value);
   };
 
   const dateChanged = (date) => {
-    setToDo({...toDo,
-      date: date,
-    });
-    console.log(date);
+    setToDo({...toDo, date: date});
   };
 
   const clearOnSubmit = (event) => {
@@ -59,15 +53,10 @@ const AddToDo = (props) => {
               <Col xs='auto'>
                 <Form.Group>
                   <Form.Label>Date: </Form.Label>
-                  <MuiPickersUtilsProvider libInstance={moment} utils={MomentUtils}>
-                    <DatePicker
-                      value={toDo.date}
-                      name='date'
-                      format="DD.MM.YYYY"
-                      onChange={date => dateChanged(date.toISOString())}
-                      styles
-                      />
-                  </MuiPickersUtilsProvider>
+                  <MyDatePicker
+                    value={toDo.date}
+                    onEditingDate={dateChanged}
+                  />
                 </Form.Group>
               </Col>
 

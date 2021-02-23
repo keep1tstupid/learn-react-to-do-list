@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from "../components/Header";
 import AddToDo from "../components/AddToDo";
 import ShowList from "../components/ShowList";
@@ -7,6 +7,17 @@ import '../App.css';
 
 const ToDoView = () => {
   const [toDos, setToDos] = useState([]);
+
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem('toDos'));
+    if (items) {
+      setToDos(items);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('toDos', JSON.stringify(toDos));
+  }, [toDos]);
 
   const onDelete = (index) => {
     setToDos(toDos.filter((_, idx) => index !== idx))
